@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ant-java-project" basedir="." default="init">
+
+	<target name="init" depends="clean,create,compile,package" description="This will print my project status">
+	<echo>The Ant java project executed successfully</echo>	
+	</target>
+	
+	<target name="clean" description="It will clean up my class directory">
+	<delete dir="build/class"></delete>	
+	 <delete dir="dist"></delete>
+	</target>
+	
+	<target name="create" description="It will create build/class directory">
+	<mkdir dir="build/class"/>
+		<mkdir dir="dist"/>
+	</target>
+	
+	<target name="compile" description="It will compile my java code">
+	<javac srcdir="src" destdir="build/class"></javac>	
+	</target>
+	
+	<target name="package" description="It will create jar file">
+		<jar destfile="dist/ant-java.jar" basedir="build/class"></jar>
+	</target>
+	
+</project>
